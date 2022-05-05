@@ -1,25 +1,16 @@
-# -*- coding: utf-8 -*-
-
 # from __future__ import unicode_literals
-
 # import sideeffect
-import codecs
 from teststring import TEST_STRING
 
 
-def test_print():
-    print("{}".format(TEST_STRING))
-
-
-def test_open_gibberish_file():
-    with codecs.open("04-tc-boom/gibberish.txt", "r", "utf-8") as f:
-        for n, line in enumerate(f.readlines()):
-            print(u"{:02d}: {}".format(n, line.upper())),
+def print_test_string_bytes():
+    print([c for c in TEST_STRING])
+    print([c for c in bytes(TEST_STRING.encode("utf-8"))])
 
 
 def main():
-    # test_print()
-    test_open_gibberish_file()
+    print_test_string_bytes()
+    # print("TEST_STRING: {}".format(TEST_STRING))
 
 
 if __name__ == "__main__":
